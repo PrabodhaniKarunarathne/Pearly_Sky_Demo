@@ -60,14 +60,15 @@ const SignIn = () => {
         password: password
       });
   
-      // Correct the typo here:
       const token = response.data.token;
       const user = response.data.user;
   
       dispatch(loginSuccess({ user: user, token }));
   
-      alert(`Login successful! \n User: ${user.name},\n User Name: ${user.userName},\n Contact: ${user.contact},\n Token: ${token}`);
+      alert(`Login successful! User: ${user.userName}, Token: ${token}`);
       navigate("/dashboard");
+
+
   
     } catch (error) {
       const errorMessage =
@@ -182,11 +183,10 @@ const SignIn = () => {
               </div>
             </div>
 
-            {/* Sign In Button */}
             <div className="flex justify-center items-center mt-6">
               <button
                 type="submit"
-                className="mb-2 py-2.5 px-4 text-sm font-semibold tracking-wider rounded-full bg-black text-white hover:bg-grey hover:text-black focus:outline-none"
+                className="mb-2 py-2.5 px-4 text-sm font-semibold tracking-wider rounded-full bg-black text-white hover:bg-grey hover:text-white focus:outline-none"
               >
                 Sign in
               </button>
